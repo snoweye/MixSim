@@ -1,18 +1,20 @@
 \name{print.object}
 \alias{print.MixSim}
 \alias{summary.MixSim}
+\alias{print.MixGOM}
 \title{Functions for Printing or Summarizing Objects}
 \description{
-  A \code{MixSim} class is declared, and these are functions
-  to print and summary objects.
+  A \code{MixSim} and \code{MixGOM} classes are declared, and these are functions
+  to print and summarize objects.
 }
 \usage{
 \method{print}{MixSim}(x, ...)
 \method{summary}{MixSim}(object, ...)
+\method{print}{MixGOM}(x, ...)
 }
 \arguments{
-  \item{x}{an object with the 'MixSim' class attributes.}
-  \item{object}{an object with the 'MixSim' class attributes.}
+  \item{x}{an object with the 'MixSim' (or 'MixGOM') class attributes.}
+  \item{object}{an object with the 'MixSim' (or 'MixGOM') class attributes.}
   \item{\dots}{other possible options.}
 }
 \details{
@@ -27,10 +29,7 @@
 \references{
 Maitra, R. and Melnykov, V. (2010) ``Simulating data to study performance of finite mixture modeling and clustering algorithms'', The Journal of Computational and Graphical Statistics, 2:19, 354-376.
 
-Melnykov, V., Chen, W.-C., and Maitra, R. (2012)
-``MixSim: An R Package for Simulating Data to Study Performance of
-Finite Mixture Modeling and Clustering Algorithms'',
-Journal of Statistical Software, (submitted).
+Melnykov, V., Chen, W.-C., and Maitra, R. (2012) ``MixSim: An R Package for Simulating Data to Study Performance of Clustering Algorithms'', Journal of Statistical Software, 51:12, 1-25.
 }
 \author{ Volodymyr Melnykov, Wei-Chen Chen, and Ranjan Maitra. }
 

@@ -33,9 +33,9 @@ for (bo in omega){
 		Q <- MixSim(BarOmega = bo, K = K, p = p)
 		A <- simdataset(n = n, Pi = Q$Pi, Mu = Q$Mu, S = Q$S)
 
-		# Use try(...) to catch fails of Mclust.
+		# Use try(...) to catch Mclust failure instances
 		id.Mclust <- try(Mclust(A$X, G = K, model = "VVV")$class)
-		# Replace error ids of Mclust if any fail occurs.
+		# Provide error ids if a failure occurs
 		if (inherits(id.Mclust, what = "try-error") || (is.null(id.Mclust)))
 			id.Mclust <- rep(1, n)
 
@@ -60,6 +60,24 @@ for (bo in omega){
 		VI.Ward[i] <- VarInf(A$id, id.Ward)
 
 	}
+
+	cat("Omega =", bo, "\n\n")
+
+	cat("Mclust: AR mean =", mean(AR.Mclust), " sd =", sd(AR.Mclust), "\n")
+	cat("Mclust: P mean =", mean(P.Mclust), " sd =", sd(P.Mclust), "\n")
+	cat("Mclust: VI mean =", mean(VI.Mclust), " sd =", sd(VI.Mclust), "\n\n")
+
+	cat("Kmeans: AR mean =", mean(AR.Kmeans), " sd =", sd(AR.Kmeans), "\n")
+	cat("Kmeans: P mean =", mean(P.Kmeans), " sd =", sd(P.Kmeans), "\n")
+	cat("Kmeans: VI mean =", mean(VI.Kmeans), " sd =", sd(VI.Kmeans), "\n\n")
+
+	cat("PAM: AR mean =", mean(AR.PAM), " sd =", sd(AR.PAM), "\n")
+	cat("PAM: P mean =", mean(P.PAM), " sd =", sd(P.PAM), "\n")
+	cat("PAM: VI mean =", mean(VI.PAM), " sd =", sd(VI.PAM), "\n\n")
+
+	cat("Ward: AR mean =", mean(AR.Ward), " sd =", sd(AR.Ward), "\n")
+	cat("Ward: P mean =", mean(P.Ward), " sd =", sd(P.Ward), "\n")
+	cat("Ward: VI mean =", mean(VI.Ward), " sd =", sd(VI.Ward), "\n\n")
 
 }
 

@@ -1,19 +1,18 @@
-\name{MixSim}
-\alias{MixSim}
+\name{MixGOM}
+\alias{MixGOM}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Mixture Simulation }
+\title{ Mixture Simulation based on generalized overlap of Maitra}
 \description{
-Generates a finite mixture model with Gaussian components for prespecified levels of maximum and/or average overlaps.
+Generates a finite mixture model with Gaussian components for a prespecified level of goMega (generalized overlap of Maitra).
 }
 \usage{
-MixSim(BarOmega = NULL, MaxOmega = NULL, K, p, sph = FALSE, hom = FALSE,
+MixGOM(goMega = NULL, K, p, sph = FALSE, hom = FALSE,
        ecc = 0.90, PiLow = 1.0, int = c(0.0, 1.0), resN = 100,
        eps = 1e-06, lim = 1e06)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{BarOmega}{ value of desired average overlap. }
-  \item{MaxOmega}{ value of desired maximum overlap. }
+  \item{goMega}{ value of desired generalized overlap of Maitra. }
   \item{K}{ number of components. }
   \item{p}{ number of dimensions. }
   \item{sph}{ covariance matrix structure (FALSE - non-spherical, TRUE - spherical). }
@@ -26,19 +25,18 @@ MixSim(BarOmega = NULL, MaxOmega = NULL, K, p, sph = FALSE, hom = FALSE,
   \item{lim}{ maximum number of integration terms (Davies, 1980). }
 }
 \details{
-  If 'BarOmega' is not specified, the function generates a mixture solely based on 'MaxOmega'; if 'MaxOmega' is not specified, the function generates a mixture solely based on 'BarOmega'.
+  Returns mixture parameters satisfying the prespecified level of goMega.
 }
 \value{
   \item{Pi }{vector of mixing proportions. }
   \item{Mu }{matrix consisting of components' mean vectors (K * p). }
   \item{S }{set of components' covariance matrices (p * p * K). }
-  \item{OmegaMap}{matrix of misclassification probabilities (K * K); OmegaMap[i,j] is the probability that X coming from the i-th component is classified to the j-th component. }
-  \item{BarOmega }{value of average overlap. }
-  \item{MaxOmega }{value of maximum overlap. }
-  \item{rcMax }{row and column numbers for the pair of components producing maximum overlap 'MaxOmega'. }
+  \item{goMega }{value of generalized overlap of Maitra. }
   \item{fail }{flag value; 0 represents successful mixture generation, 1 represents failure. }
 }
 \references{
+Maitra, R. (2010) ``A re-defined and generalized percent-overlap-of-activation measure for studies of fMRI reproducibility and its use in identifying outlier activation maps'', NeuroImage, 50, 124-135.
+
 Maitra, R. and Melnykov, V. (2010) ``Simulating data to study performance of finite mixture modeling and clustering algorithms'', The Journal of Computational and Graphical Statistics, 2:19, 354-376.
 
 Melnykov, V., Chen, W.-C., and Maitra, R. (2012) ``MixSim: An R Package for Simulating Data to Study Performance of Clustering Algorithms'', Journal of Statistical Software, 51:12, 1-25.
@@ -47,22 +45,16 @@ Davies, R. (1980) ``The distribution of a linear combination of chi-square rando
 }
 \author{ Volodymyr Melnykov, Wei-Chen Chen, and Ranjan Maitra. }
 
-\seealso{ \code{overlap}, \code{pdplot}, and \code{simdataset}. }
+\seealso{ \code{overlapGOM}, \code{MixSim}, and \code{simdataset}. }
 \examples{
 %\dontrun{
 set.seed(1234)
 
 # controls average and maximum overlaps
-(ex.1 <- MixSim(BarOmega = 0.05, MaxOmega = 0.15, K = 4, p = 5))
-summary(ex.1)
-
-# controls average overlap
-(ex.2 <- MixSim(BarOmega = 0.05, K = 4, p = 5, hom = TRUE))
-summary(ex.2)
+(ex.1 <- MixGOM(goMega = 0.05, K = 4, p = 5))
 
 # controls maximum overlap
-(ex.3 <- MixSim(MaxOmega = 0.15, K = 4, p = 5, sph = TRUE))
-summary(ex.3)
+(ex.2 <- MixGOM(goMega = 0.15, K = 4, p = 5, sph = TRUE))
 %}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
