@@ -1,4 +1,5 @@
-useDynLib(MixSim)
+# useDynLib(MixSim)
+import(MASS)
 
 export(MixSim)
 export(overlap)
