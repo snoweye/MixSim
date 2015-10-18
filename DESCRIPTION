@@ -25,7 +25,8 @@ Description: MixSim allows simulating mixtures of Gaussian
         distribution plots for the graphical display of finite mixture
         models.
 License: GPL (>= 2)
-Packaged: 2014-12-07 18:48:02 UTC; snoweye
+NeedsCompilation: yes
+Packaged: 2015-10-18 19:13:16 UTC; snoweye
 Author: Volodymyr Melnykov [aut, cre],
   Wei-Chen Chen [aut],
   Ranjan Maitra [aut]
