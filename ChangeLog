@@ -1,3 +1,5 @@
+2015-10-19: Ver. 1.1-2
+  * Fix an adjR seg. fault.
 
 2014-11-17: Ver. 1.1-1
   * Gen. overlap of Maitra added.
