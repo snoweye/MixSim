@@ -4,7 +4,13 @@ Date: 2015-10-19
 Title: Simulating Data to Study Performance of Clustering Algorithms
 Authors@R: c(person("Volodymyr", "Melnykov", role = c("aut", "cre"), email =
         "vmelnykov@cba.ua.edu"), person("Wei-Chen", "Chen", role =
-        "aut"), person("Ranjan", "Maitra", role = "aut"))
+        "aut"), person("Ranjan", "Maitra", role = "aut"),
+        person("Robert", "Davies", role = "ctb",
+               comment = "quadratic form probabilities"),
+        person("Stephen", "Moshier", role = "ctb",
+               comment = "eigenvalue calculations"),
+        person("Rouben", "Rostamian", role = "ctb",
+               comment = "memory allocation"))
 Depends: R (>= 3.0.0), MASS
 Enhances: mclust, cluster
 LazyLoad: yes
@@ -26,8 +32,11 @@ Description: The utility of this package is in simulating mixtures of Gaussian
         models.
 License: GPL (>= 2)
 NeedsCompilation: yes
-Packaged: 2015-10-19 11:07:53 UTC; snoweye
+Packaged: 2015-10-20 02:08:41 UTC; snoweye
 Author: Volodymyr Melnykov [aut, cre],
   Wei-Chen Chen [aut],
-  Ranjan Maitra [aut]
+  Ranjan Maitra [aut],
+  Robert Davies [ctb] (quadratic form probabilities),
+  Stephen Moshier [ctb] (eigenvalue calculations),
+  Rouben Rostamian [ctb] (memory allocation)
 Maintainer: Volodymyr Melnykov <vmelnykov@cba.ua.edu>
