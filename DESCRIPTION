@@ -35,3 +35,4 @@ Description: The utility of this package is in simulating mixtures of Gaussian
         models.
 License: GPL (>= 2)
 NeedsCompilation: yes
+Maintainer: Wei-Chen Chen <wccsnow@gmail.com>
