@@ -1,5 +1,5 @@
 \name{MixSim-package}
-\alias{00_MixSim-package}
+\alias{MixSim-package}
 \docType{package}
 \title{
 Simulation of Gaussian Finite Mixture Models
